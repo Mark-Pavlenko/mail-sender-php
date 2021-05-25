@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="css/select.css">
 		<link rel="stylesheet" href="css/style.css">
 		<title>Стилизайция и отправка формы</title>
+
 	</head>
 	<body>
 		<div class="wrapper">
@@ -14,28 +15,28 @@
 					<h1 class="form__title">Отправка данных на почту</h1>
 					<div class="form__item">
 						<label for="formName" class="form__label">Имя*:</label>
-						<input id="formName" type="text" name="name" class="form__input _req">
+						<input id="formName" type="text" name="name" class="form__input _req" value="Mark Pavlenko" required>
 					</div>
 					<div class="form__item">
 						<label for="formEmail" class="form__label">E-mail*:</label>
-						<input id="formEmail" type="text" name="email" class="form__input _req _email">
+						<input id="formEmail" type="text" name="email" class="form__input _req _email" value="sagohix394@64ge.com" required>
 					</div>
+<!--					<div class="form__item">-->
+<!--						<div class="form__label">Левша или правша?</div>-->
+<!--						<div class="options">-->
+<!--							<div class="options__item">-->
+<!--								<input id="formRightHanded" checked type="radio" value="right" name="hand" class="options__input">-->
+<!--								<label for="formRightHanded" class="options__label"><span>Правша</span></label>-->
+<!--							</div>-->
+<!--							<div class="options__item">-->
+<!--								<input id="formLeftHanded" type="radio" value="left" name="hand" class="options__input">-->
+<!--								<label for="formLeftHanded" class="options__label"><span>Левша</span></label>-->
+<!--							</div>-->
+<!--						</div>-->
+<!--					</div>-->
 					<div class="form__item">
-						<div class="form__label">Левша или правша?</div>
-						<div class="options">
-							<div class="options__item">
-								<input id="formRightHanded" checked type="radio" value="right" name="hand" class="options__input">
-								<label for="formRightHanded" class="options__label"><span>Правша</span></label>
-							</div>
-							<div class="options__item">
-								<input id="formLeftHanded" type="radio" value="left" name="hand" class="options__input">
-								<label for="formLeftHanded" class="options__label"><span>Левша</span></label>
-							</div>
-						</div>
-					</div>
-					<div class="form__item">
-						<label for="formMessage" class="form__label">Сообщение:</label>
-						<textarea name="message" id="formMessage" class="form__input"></textarea>
+						<label for="formMessage" class="form__label">Сообщение*:</label>
+						<textarea name="message" id="formMessage" class="form__input" required></textarea>
 					</div>
 					<div class="form__item">
 						<div class="form__label">Возраст:</div>
