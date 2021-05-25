@@ -39,17 +39,17 @@
    		$message.='<p><strong>Сообщение:</strong> '.$_POST['message'].'</p>';
    	}
 
-//    	//Прикрепить файл
-//    	if (!empty($_FILES['image']['tmp_name'])) {
-//    		//путь загрузки файла
-//    		$filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
-//    		//грузим файл
-//    		if (copy($_FILES['image']['tmp_name'], $filePath)){
-//    			$fileAttach = $filePath;
-//    			$body.='<p><strong>Фото в приложении</strong>';
-//    			$mail->addAttachment($fileAttach);
-//    		}
-//    	}
+   	//Прикрепить файл
+   	if (!empty($_FILES['image']['tmp_name'])) {
+   		//путь загрузки файла
+   		$filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
+   		//грузим файл
+   		if (copy($_FILES['image']['tmp_name'], $filePath)){
+   			$fileAttach = $filePath;
+   			$file.='<p><strong>Приложенные файлы</strong>';
+   			$mail->addAttachment($fileAttach);
+   		}
+   	}
 
     $body = '<html lang="en">
                <head>
@@ -242,9 +242,9 @@
                </body>
              </html>';
 
-    $array = array($name, $email, $age, $message);
+    $array = array($name, $email, $age, $message, $file);
     foreach($array as $elements){
-        $mail->Body = ($body.$name.$email.$age.$message);
+        $mail->Body = ($body.$name.$email.$age.$message.$file);
     }
 
 	//Отправляем
