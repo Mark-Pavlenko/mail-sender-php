@@ -15,7 +15,7 @@
 	//Кому отправить
 	$mail->addAddress($_POST['email']);
 	//Тема письма
-	$mail->Subject = 'Привет! Это "Фрилансер по жизни"';
+	$mail->Subject = $_POST['messageTitle'];
 
 	//Рука
 	$hand = "Правая";
@@ -30,9 +30,6 @@
    	}
    	if(trim(!empty($_POST['email']))){
    		$email.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
-   	}
-   	if(trim(!empty($_POST['age']))){
-   		$age.='<p><strong>Возраст:</strong> '.$_POST['age'].'</p>';
    	}
 
    	if(trim(!empty($_POST['message']))){
@@ -242,7 +239,7 @@
                </body>
              </html>';
 
-    $array = array($name, $email, $age, $message, $file);
+    $array = array($name, $email,  $message, $file);
     foreach($array as $elements){
         $mail->Body = ($body.$name.$email.$age.$message.$file);
     }
