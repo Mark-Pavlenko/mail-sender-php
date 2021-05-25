@@ -23,6 +23,34 @@
 		$hand = "Левая";
 	}
 
+   	//Тело письма
+
+   	if(trim(!empty($_POST['name']))){
+   		$name.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
+   	}
+   	if(trim(!empty($_POST['email']))){
+   		$email.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
+   	}
+   	if(trim(!empty($_POST['age']))){
+   		$age.='<p><strong>Возраст:</strong> '.$_POST['age'].'</p>';
+   	}
+
+   	if(trim(!empty($_POST['message']))){
+   		$message.='<p><strong>Сообщение:</strong> '.$_POST['message'].'</p>';
+   	}
+
+//    	//Прикрепить файл
+//    	if (!empty($_FILES['image']['tmp_name'])) {
+//    		//путь загрузки файла
+//    		$filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
+//    		//грузим файл
+//    		if (copy($_FILES['image']['tmp_name'], $filePath)){
+//    			$fileAttach = $filePath;
+//    			$body.='<p><strong>Фото в приложении</strong>';
+//    			$mail->addAttachment($fileAttach);
+//    		}
+//    	}
+
     $body = '<html lang="en">
                <head>
                  <meta charset="UTF-8" />
@@ -171,7 +199,6 @@
                    box-sizing: border-box;
                    color: #e5ae86;
                    display: block;
-                   font-family: "OpenSans", sans-serif;
                    font-size: 15px;
                    font-weight: normal;
                    margin-bottom: 5px;
@@ -203,7 +230,7 @@
                    <div class="wrap_content with-img">
                      <div class="main-block-bg">
                        <div class="main-block-border-bg">
-                         <h2>Fehlermeldung</h2>
+                         <h2>Some text</h2>
                          <div class="error_message">
                            <p>Keine aktive Session gefunden!</p><br /><br />
                            <a href="#">Startseite</a>
@@ -215,37 +242,10 @@
                </body>
              </html>';
 
-// 	//Тело письма
-// 	$body = '<h1>Встречайте супер письмо!</h1>';
-//
-// 	if(trim(!empty($_POST['name']))){
-// 		$body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
-// 	}
-// 	if(trim(!empty($_POST['email']))){
-// 		$body.='<p><strong>E-mail:</strong> '.$_POST['email'].'</p>';
-// 	}
-// 	if(trim(!empty($_POST['age']))){
-// 		$body.='<p><strong>Возраст:</strong> '.$_POST['age'].'</p>';
-// 	}
-//
-// 	if(trim(!empty($_POST['message']))){
-// 		$body.='<p style="background-color:red;"><strong>Сообщение:</strong> '.$_POST['message'].'</p>';
-// 	}
-//
-// 	//Прикрепить файл
-// 	if (!empty($_FILES['image']['tmp_name'])) {
-// 		//путь загрузки файла
-// 		$filePath = __DIR__ . "/files/" . $_FILES['image']['name'];
-// 		//грузим файл
-// 		if (copy($_FILES['image']['tmp_name'], $filePath)){
-// 			$fileAttach = $filePath;
-// 			$body.='<p><strong>Фото в приложении</strong>';
-// 			$mail->addAttachment($fileAttach);
-// 		}
-// 	}
-
-	$mail->Body = $body;
-
+    $array = array($name, $email, $age, $message);
+    foreach($array as $elements){
+        $mail->Body = ($body.$name.$email.$age.$message);
+    }
 
 	//Отправляем
 	if (!$mail->send()) {
