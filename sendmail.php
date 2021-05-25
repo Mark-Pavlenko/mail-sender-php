@@ -11,7 +11,7 @@
 	$mail->IsHTML(true);
 
 	//От кого письмо
-	$mail->setFrom('marko.pavlenko@nure.ua', 'Фрилансер по жизни');
+	$mail->setFrom('marko.pavlenko@nure.ua', $_POST['name']);
 	//Кому отправить
 	$mail->addAddress($_POST['email']);
 	//Тема письма
