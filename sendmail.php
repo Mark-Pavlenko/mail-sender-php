@@ -53,7 +53,6 @@
                  <meta charset="UTF-8" />
                  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                 <title>Document</title>
                  <style>
                  .main-block-bg {
                    background-color: transparent;
@@ -67,8 +66,9 @@
                    min-height: 218px;
                    padding: 32px 22px 22px;
                    position: relative;
-                   width: 100%;
+                   width: auto;
                    margin-bottom: 20px;
+
                  }
 
                  .main-block-bg:before {
@@ -93,6 +93,7 @@
                    position: relative;
                    width: 960px;
                    min-height: 150px;
+                   width: auto;
                  }
                  .main-block-border-bg a {
                    color: #fdc50d;
